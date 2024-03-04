@@ -1,4 +1,5 @@
 ﻿using Storage.Model;
+using Storage.Services;
 
 namespace LegoStorage;
 
@@ -14,6 +15,8 @@ class Program
         Console.WriteLine("X.Zamknij program");
 
         var userChoice = Console.ReadLine();
+        var catalog = new LegoCatalog();
+  
 
         while (true)
         {
@@ -38,12 +41,14 @@ class Program
 
                     var newSet = new LegoSet(input_Name, input_Number, input_Series, input_PartQuantity, input_ReleaseDate, input_RetailPrice, input_ResellPrice, warehouse);
 
-               
+                    catalog.AddSet(newSet);
 
                     break;
                 case "2":
                     Console.WriteLine("Podaj nazwę lub numer zestawu do usunięcia");
-                    
+                    var toRemoveSet = Console.ReadLine();
+
+                    catalog.RemoveSet(toRemoveSet);
 
                     break;
                 case "3":
