@@ -53,7 +53,9 @@ class Program
                     break;
                 case "3":
                     Console.WriteLine("Podaj szukany numer zestawu:");
-                   
+                    var numberToSearch = Console.ReadLine();
+
+                    catalog.DisplayMatchingSet(numberToSearch);
 
                     break;
 

@@ -45,5 +45,23 @@ namespace Storage.Services
                 Console.WriteLine("Nie odnaleziono zestawu!");
             }
         }
+        private void DisplaySetDetails(List<LegoSet> legoSetsList)
+        {
+
+            foreach (var set in LegoSetsList)
+            {
+                Display(set);
+            }
+        }
+        private void Display(LegoSet set)
+        {
+            Console.WriteLine($"Zestaw {set.SetNumber} - {set.SetName} z serii {set.Series}, ilość elementów: {set.ElementsQuantity}, data wydania: {set.ReleaseDate}, cena katalogowa: {set.RetailPrice}");
+        }
+        public void DisplayMatchingSet(string inputPhrase)
+        {
+            var matchingSets = LegoSetsList.Where(c => c.SetName.Contains(inputPhrase) || c.SetNumber.Contains(inputPhrase)).ToList();
+            DisplaySetDetails(matchingSets);
+
+        }
     }
 }
