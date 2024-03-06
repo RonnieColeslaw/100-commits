@@ -63,5 +63,8 @@ namespace Storage.Services
             DisplaySetDetails(matchingSets);
 
         }
+
+        public void DisplayAllSets() => DisplaySetDetails(LegoSetsList);
+       
     }
 }

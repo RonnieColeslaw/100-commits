@@ -14,7 +14,7 @@ class Program
         Console.WriteLine("4.Wyświetl wszystkie zestawy");
         Console.WriteLine("X.Zamknij program");
 
-        var userChoice = Console.ReadLine();
+        var userChoice = Console.ReadLine().ToLower();
         var catalog = new LegoCatalog();
   
 
@@ -61,11 +61,12 @@ class Program
 
                 case "4":
                     Console.WriteLine("Wyświetl wszystkie zestawy");
-                  
+
+                    catalog.DisplayAllSets();
+
                     break;
 
                 case "x":
-                case "X":
                     return;
                 default:
                     Console.WriteLine($"Brak opcji: {userChoice}");
