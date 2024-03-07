@@ -16,7 +16,7 @@ class Program
 
         var userChoice = Console.ReadLine().ToLower();
         var catalog = new LegoCatalog();
-  
+
 
         while (true)
         {
@@ -60,9 +60,22 @@ class Program
                     break;
 
                 case "4":
-                    Console.WriteLine("Wyświetl wszystkie zestawy");
+                    Console.WriteLine("a) Wyświetl wszystkie zestawy");
+                    Console.WriteLine("b) Wyświetl wszystkie zestawy z danego magazynu");
+                    string option = Console.ReadLine();
 
-                    catalog.DisplayAllSets();
+                    switch (option)
+                    {
+                        case "a":
+                            catalog.DisplayAllSets();
+                            break;
+
+                        case "b":
+                            Console.WriteLine("Podaj numer magazynu:");
+                            string warehouseName = Console.ReadLine();
+                            catalog.DisplaySetsFromWarehouse(warehouseName);
+                            break;
+                    }
 
                     break;
 

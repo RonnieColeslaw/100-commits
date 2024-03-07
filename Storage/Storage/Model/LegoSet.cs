@@ -17,6 +17,7 @@ namespace Storage.Model
             ElementsQuantity = elementsQuantity;
             ReleaseDate = releaseDate;
             RetailPrice = retailPrice;
+            Warehouse = warehouse;
         
         }
 
@@ -31,6 +32,7 @@ namespace Storage.Model
         public DateTime ReleaseDate { get; set; }
 
         public decimal RetailPrice { get; set; }
-   
+
+        public string Warehouse { get; set; }
     }
 }

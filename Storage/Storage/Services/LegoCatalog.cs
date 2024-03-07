@@ -14,8 +14,9 @@ namespace Storage.Services
     public class LegoCatalog
     {
         private List<LegoSet> LegoSetsList { get; set; } = new List<LegoSet>();
+        private List<Warehouse> Warehouses { get; set; } = new List<Warehouse>();
 
-    
+
         public void AddSet(LegoSet set)
         {
             LegoSetsList.Add(set);
@@ -63,7 +64,32 @@ namespace Storage.Services
             DisplaySetDetails(matchingSets);
 
         }
+        public void DisplaySetsFromWarehouse(string name)
+        {
 
+            var setsFromWarehouse = LegoSetsList.Where(s => s.Warehouse.Contains(name));
+
+            foreach (var warehouse in setsFromWarehouse)
+            {
+                Console.WriteLine(warehouse.SetName);
+
+            }
+        }
+
+        public string SelectRandomWarehouse()
+        {
+
+            Warehouses.Add(new Warehouse { Name = "Magazyn 1" });
+            Warehouses.Add(new Warehouse { Name = "Magazyn 2" });
+
+            Random r = new Random();
+            int index = r.Next(Warehouses.Count);
+            string warehouse = Warehouses[index].Name;
+
+            return warehouse;
+
+
+        }
         public void DisplayAllSets() => DisplaySetDetails(LegoSetsList);
        
     }
