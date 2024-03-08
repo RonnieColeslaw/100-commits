@@ -16,6 +16,7 @@ class Program
 
         var userChoice = Console.ReadLine().ToLower();
         var catalog = new LegoCatalog();
+        catalog.ReadFromFile();
 
 
         while (true)

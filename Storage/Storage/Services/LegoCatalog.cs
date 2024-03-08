@@ -1,12 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Storage.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 
 
 namespace Storage.Services
@@ -15,6 +8,12 @@ namespace Storage.Services
     {
         private List<LegoSet> LegoSetsList { get; set; } = new List<LegoSet>();
         private List<Warehouse> Warehouses { get; set; } = new List<Warehouse>();
+
+        //string filePath = "C:\\Users\\Dominik Misiak\\Desktop\\LegoSets.txt";
+
+        string filePath = File.ReadAllText(@"./appsettings.json");
+        ConnStrings connStrings = JsonSerializer.Deserialize<ConnStrings>(filePath);
+
 
 
         public void AddSet(LegoSet set)
@@ -28,15 +27,30 @@ namespace Storage.Services
 
         public void SaveToFile(string itemToSave)
         {
-            string filePath = "C:\\Users\\Dominik Misiak\\Desktop\\LegoSets.txt";
             using StreamWriter sw = new StreamWriter(filePath);
-            sw.Write(itemToSave); 
+            sw.Write(itemToSave);
+        }
+
+        public void ReadFromFile()
+        {
+            try
+            {
+                using StreamReader sr = new StreamReader(filePath);
+                string jsonString = sr.ReadToEnd();
+                LegoSetsList = JsonConvert.DeserializeObject<List<LegoSet>>(jsonString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
         }
 
         public void RemoveSet(string input)
         {
             LegoSet setToRemove = LegoSetsList.FirstOrDefault(s => s.SetNumber == input || s.SetName == input);
-            if(setToRemove != null )
+            if (setToRemove != null)
             {
                 LegoSetsList.Remove(setToRemove);
                 Console.WriteLine($"Zestaw {setToRemove.SetName} ({setToRemove.SetNumber}) został usunięty.");
@@ -91,6 +105,7 @@ namespace Storage.Services
 
         }
         public void DisplayAllSets() => DisplaySetDetails(LegoSetsList);
-       
+
+
     }
 }
