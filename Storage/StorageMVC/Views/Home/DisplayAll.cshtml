@@ -1,0 +1,73 @@
+﻿@model List<LegoMVC.Models.LegoModel>
+
+@{
+    ViewData["Title"] = "DisplayAll";
+}
+
+<h1>DisplayAll</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data View</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lego Sets List: </h2>
+    <td>
+        <button type="button" onclick="location.href='@Url.Action("Create", "Lego")'">Dodaj zestaw</button>
+    </td>
+
+    <table>
+        <tr>
+            <th>Photo</th>
+            <th>Set Name</th>
+            <th>Set Number</th>
+            <th>Series</th>
+            <th>Elements Quantity</th>
+            <th>Release Date</th>
+            <th>Retail Price</th>
+            <th>Resell Price</th>
+            <th>Warehouse</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>Photo</td>
+                <td>@item.SetName</td>
+                <td>@item.SetNumber</td>
+                <td>@item.Series</td>
+                <td>@item.ElementsQuantity</td>
+                <td>@item.ReleaseDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.RetailPrice</td>
+                <td>@item.ResellPrice</td>
+                <td>@item.Warehouse</td>
+                <td>
+
+                    <button type="button" onclick="location.href='@Url.Action("Delete", "Lego", new { id = item.SetNumber })'">Usuń</button>
+                    <button type="button" onclick="location.href='@Url.Action("Edit", "Lego")'">Edytuj</button>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
