@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storage.Model
-{
-    public class Warehouse
-    {
-        public string Name { get; set; }
+namespace Storage.Model;
 
-    }
+public class Warehouse
+{
+    public string Name { get; set; }
+
 }
+
