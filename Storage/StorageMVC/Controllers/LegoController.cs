@@ -97,5 +97,20 @@ namespace StorageMVC.Controllers
                 return View();
             }
         }
+
+        private List<LegoModel> GetLegoSets()
+        {
+            List<LegoModel> legoSets;
+            if (System.IO.File.Exists(filePath))
+            {
+                string json = System.IO.File.ReadAllText(filePath);
+                legoSets = JsonConvert.DeserializeObject<List<LegoModel>>(json);
+            }
+            else
+            {
+                legoSets = new List<LegoModel>();
+            }
+            return legoSets;
+        }
     }
 }
