@@ -112,5 +112,10 @@ namespace StorageMVC.Controllers
             }
             return legoSets;
         }
+        private void SaveLegoSets(List<LegoModel> legoSets)
+        {
+            string json = JsonConvert.SerializeObject(legoSets, Formatting.Indented);
+            System.IO.File.WriteAllText(filePath, json);
+        }
     }
 }

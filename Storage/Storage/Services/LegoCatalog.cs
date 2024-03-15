@@ -9,10 +9,10 @@ namespace Storage.Services
         private List<LegoSet> LegoSetsList { get; set; } = new List<LegoSet>();
         private List<Warehouse> Warehouses { get; set; } = new List<Warehouse>();
 
-        //string filePath = "C:\\Users\\Dominik Misiak\\Desktop\\LegoSets.txt";
+        string filePath = "C:\\Users\\Dominik Misiak\\Desktop\\LegoSets.txt";
 
-        string filePath = File.ReadAllText(@"./appsettings.json");
-        ConnStrings connStrings = JsonSerializer.Deserialize<ConnStrings>(filePath);
+        //string filePath = File.ReadAllText(@"./appsettings.json");
+        //ConnStrings connStrings = JsonSerializer.Deserialize<ConnStrings>(filePath);
 
 
 
