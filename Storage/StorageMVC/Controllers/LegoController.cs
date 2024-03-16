@@ -117,5 +117,21 @@ namespace StorageMVC.Controllers
             string json = JsonConvert.SerializeObject(legoSets, Formatting.Indented);
             System.IO.File.WriteAllText(filePath, json);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSet(LegoModel legoModel)
+        {
+            var legoSets = GetLegoSets();
+
+            //var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
+
+            legoSets.Add(legoModel);
+            SaveLegoSets(legoSets);
+
+
+
+            return RedirectToAction("StorageAll");
+
+        }
     }
 }
