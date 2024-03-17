@@ -59,23 +59,12 @@ namespace StorageMVC.Controllers
         // GET: LegoController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            List<LegoModel> legoSets = GetLegoSets();
+            LegoModel legoSetToEdit = legoSets.FirstOrDefault(s => s.SetNumber == id.ToString());
+
+            return View("EditLego", legoSetToEdit);
         }
 
-        // POST: LegoController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: LegoController/Delete/5
         public ActionResult Delete(int id)
