@@ -75,16 +75,17 @@ namespace StorageMVC.Controllers
         // POST: LegoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            string savedLego = System.IO.File.ReadAllText(filePath);
+
+            List<LegoModel> dataList = JsonConvert.DeserializeObject<List<LegoModel>>(savedLego);
+
+            LegoModel legoToRemove = dataList.FirstOrDefault(l => l.SetNumber == id.ToString());
+
+       
+
+            return RedirectToAction("StorageAll");
         }
 
         private List<LegoModel> GetLegoSets()
