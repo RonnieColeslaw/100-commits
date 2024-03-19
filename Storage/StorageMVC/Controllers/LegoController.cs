@@ -18,16 +18,12 @@ namespace StorageMVC.Controllers
 
         public ActionResult StorageAll()
         {
-
-
             string savedLego = System.IO.File.ReadAllText(filePath);
 
             var dataList = JsonConvert.DeserializeObject<List<LegoModel>>(savedLego);
 
             return View("DisplayAll", dataList);
-
         }
-
 
         // GET: LegoController/Details/5
         public ActionResult Details(int id)
@@ -64,14 +60,7 @@ namespace StorageMVC.Controllers
 
             return View("EditLego", legoSetToEdit);
         }
-
-
-        // GET: LegoController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
+        
         // POST: LegoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,8 +72,14 @@ namespace StorageMVC.Controllers
 
             LegoModel legoToRemove = dataList.FirstOrDefault(l => l.SetNumber == id.ToString());
 
-       
+            if (legoToRemove != null)
+            {
+                dataList.Remove(legoToRemove);
 
+                string updatedLegoSet = JsonConvert.SerializeObject(dataList, Formatting.Indented);
+
+                System.IO.File.WriteAllText(filePath, updatedLegoSet);
+            }
             return RedirectToAction("StorageAll");
         }
 
@@ -118,10 +113,7 @@ namespace StorageMVC.Controllers
             legoSets.Add(legoModel);
             SaveLegoSets(legoSets);
 
-
-
             return RedirectToAction("StorageAll");
-
         }
     }
 }
