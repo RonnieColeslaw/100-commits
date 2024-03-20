@@ -3,14 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace StorageMVC.Controllers
-{
+namespace StorageMVC.Controllers;
+
     public class LegoController : Controller
     {
-
         string filePath = @"C:\Users\Dominik Misiak\Desktop\LegoSets.txt";
-
-        // GET: LegoController
         public ActionResult Index()
         {
             return View();
@@ -116,4 +113,4 @@ namespace StorageMVC.Controllers
             return RedirectToAction("StorageAll");
         }
     }
-}
+
