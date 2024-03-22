@@ -37,27 +37,6 @@ public class LegoController : Controller
         return View();
     }
 
-    // GET: LegoController/Create
-    public ActionResult Create()
-    {
-        return View();
-    }
-
-    // POST: LegoController/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
-
     // GET: LegoController/Edit/5
     public ActionResult Edit(int id)
     {
