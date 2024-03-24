@@ -1,4 +1,6 @@
-﻿namespace LegoMVC.Models;
+﻿using System.Web.Mvc;
+
+namespace LegoMVC.Models;
 
 public class LegoModel
 {
@@ -17,6 +19,8 @@ public class LegoModel
 
     public string Warehouse { get; set; }
 
+    [AllowHtml]
+    public byte[] Image { get; set; }
 
 
 }

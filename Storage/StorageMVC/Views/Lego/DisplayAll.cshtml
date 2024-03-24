@@ -31,7 +31,7 @@
 
     <h2>Lego Sets List: </h2>
     <td>
-        <button type="button" onclick="location.href='@Url.Action("Create", "Lego")'">Dodaj zestaw</button>
+        <button type="button" onclick="location.href='@Url.Action("CreateSet", "Add")'">Dodaj zestaw</button>
     </td>
 
     <table>
@@ -61,8 +61,8 @@
                 <td>@item.Warehouse</td>
                 <td>
 
-                    <button type="button" onclick="location.href='@Url.Action("Delete", "Lego", new { id = item.SetNumber })'">Usuń</button>
-                    <button type="button" onclick="location.href='@Url.Action("Edit", "Lego")'">Edytuj</button>
+                    <button type="button" onclick="location.href='@Url.Action("Delete", "Delete", new { id = item.SetNumber })'">Usuń</button>
+                    <button type="button" onclick="location.href='@Url.Action("Edit", "Edit")'">Edytuj</button>
 
                 </td>
             </tr>

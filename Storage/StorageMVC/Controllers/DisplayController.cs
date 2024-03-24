@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
+
 namespace StorageMVC.Controllers;
 
 public class DisplayController : Controller
@@ -21,6 +22,6 @@ public class DisplayController : Controller
 
         var dataList = JsonConvert.DeserializeObject<List<LegoModel>>(savedLego);
 
-        return View("DisplayAll", dataList);
+        return View("~/Views/Lego/DisplayAll.cshtml", dataList);
     }
 }
