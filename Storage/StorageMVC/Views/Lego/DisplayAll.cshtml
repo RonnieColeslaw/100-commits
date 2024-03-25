@@ -47,25 +47,32 @@
             <th>Warehouse</th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>Photo</td>
-                <td>@item.SetName</td>
-                <td>@item.SetNumber</td>
-                <td>@item.Series</td>
-                <td>@item.ElementsQuantity</td>
-                <td>@item.ReleaseDate.ToString("yyyy-MM-dd")</td>
-                <td>@item.RetailPrice</td>
-                <td>@item.ResellPrice</td>
-                <td>@item.Warehouse</td>
-                <td>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>Photo</td>
+                    <td>@item.SetName</td>
+                    <td>@item.SetNumber</td>
+                    <td>@item.Series</td>
+                    <td>@item.ElementsQuantity</td>
+                    <td>@item.ReleaseDate.ToString("yyyy-MM-dd")</td>
+                    <td>@item.RetailPrice</td>
+                    <td>@item.ResellPrice</td>
+                    <td>@item.Warehouse</td>
+                    <td>
 
-                    <button type="button" onclick="location.href='@Url.Action("Delete", "Delete", new { id = item.SetNumber })'">Usuń</button>
-                    <button type="button" onclick="location.href='@Url.Action("Edit", "Edit")'">Edytuj</button>
+                        <button type="button" onclick="location.href='@Url.Action("Delete", "Lego", new { id = item.SetNumber })'">Usuń</button>
+                        <button type="button" onclick="location.href='@Url.Action("Edit", "Lego", new { id = item.SetNumber })'">Edytuj</button>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <p>No data available</p>
         }
     </table>
 

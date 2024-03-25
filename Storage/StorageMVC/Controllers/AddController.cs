@@ -15,14 +15,21 @@ public class AddController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult CreateSet(LegoModel legoModel)
+    public ActionResult CreateSet([FromBody] LegoModel legoModel)
     {
-        var legoSets = _sharedService.GetLegoSets();
+        if (ModelState.IsValid)
+        {
+            var legoSets = _sharedService.GetLegoSets();
 
-        //var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
+            //var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
 
-        legoSets.Add(legoModel);
-        _sharedService.SaveLegoSets(legoSets);
+            legoSets.Add(legoModel);
+            _sharedService.SaveLegoSets(legoSets);
+        }
+        else
+        {
+            return BadRequest(modelState: ModelState);
+        }
        
     return RedirectToAction("StorageAll");
     }

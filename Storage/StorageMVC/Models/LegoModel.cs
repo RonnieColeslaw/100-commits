@@ -4,6 +4,7 @@ namespace LegoMVC.Models;
 
 public class LegoModel
 {
+    public int Id { get; set; }
     public string SetName { get; set; }
 
     public string SetNumber { get; set; }
