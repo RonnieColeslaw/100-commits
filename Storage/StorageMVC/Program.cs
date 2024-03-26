@@ -1,7 +1,11 @@
+using StorageMVC.Controllers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<SharedServices>();
 
 var app = builder.Build();
 

@@ -13,6 +13,11 @@ public class AddController : Controller
         _sharedService = sharedService;
     }
 
+    public ActionResult Create()
+    {
+        return View("~/Views/Lego/AddLego.cshtml");
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult CreateSet([FromBody] LegoModel legoModel)
