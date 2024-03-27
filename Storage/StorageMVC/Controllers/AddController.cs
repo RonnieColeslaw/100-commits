@@ -20,7 +20,7 @@ public class AddController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult CreateSet([FromBody] LegoModel legoModel)
+    public ActionResult CreateSet([FromForm] LegoModel legoModel)
     {
         if (ModelState.IsValid)
         {
@@ -35,7 +35,7 @@ public class AddController : Controller
         {
             return BadRequest(modelState: ModelState);
         }
-       
-    return RedirectToAction("StorageAll");
+
+        return RedirectToAction("StorageAll", "Display");
     }
 }

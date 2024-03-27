@@ -14,10 +14,16 @@ public class SharedServices
     public List<LegoModel> GetLegoSets()
     {
         List<LegoModel> legoSets;
-        if (System.IO.File.Exists(_filePath))
+
+       if (System.IO.File.Exists(_filePath))
         {
             string json = System.IO.File.ReadAllText(_filePath);
             legoSets = JsonConvert.DeserializeObject<List<LegoModel>>(json);
+           
+            if (legoSets == null)
+            {
+                legoSets = new List<LegoModel>();
+            }
         }
         else
         {

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Web.Mvc;
 
 namespace LegoMVC.Models;
 
@@ -17,11 +18,11 @@ public class LegoModel
 
     public decimal RetailPrice { get; set; }
     public decimal ResellPrice { get; set; }
+    
+    public string? Warehouse { get; set; }
 
-    public string Warehouse { get; set; }
-
-    [AllowHtml]
-    public byte[] Image { get; set; }
+    //[AllowHtml]
+    //public byte[] Image { get; set; }
 
 
 }
