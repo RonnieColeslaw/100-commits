@@ -21,6 +21,6 @@ public class EditController : Controller
         List<LegoModel> legoSets = _sharedService.GetLegoSets();
         LegoModel legoSetToEdit = legoSets.FirstOrDefault(s => s.SetNumber == id.ToString());
 
-        return View("EditLego", legoSetToEdit);
+        return View("~/Views/Lego/EditLego.cshtml", legoSetToEdit);
     }
 }

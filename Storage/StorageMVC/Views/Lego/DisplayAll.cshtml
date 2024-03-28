@@ -63,8 +63,8 @@
                     <td>@item.Warehouse</td>
                     <td>
 
-                        <button type="button" onclick="location.href='@Url.Action("Delete", "Lego", new { id = item.SetNumber })'">Usuń</button>
-                        <button type="button" onclick="location.href='@Url.Action("Edit", "Lego", new { id = item.SetNumber })'">Edytuj</button>
+                        <button type="button" onclick="location.href='@Url.Action("Delete", "Delete", new { id = item.SetNumber })'">Usuń</button>
+                        <button type="button" onclick="location.href='@Url.Action("Edit", "Edit", new { id = item.SetNumber })'">Edytuj</button>
 
                     </td>
                 </tr>
