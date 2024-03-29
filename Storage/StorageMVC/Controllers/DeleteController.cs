@@ -15,8 +15,6 @@ public class DeleteController : Controller
     }
 
     // POST: LegoController/Delete/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
     public ActionResult Delete(int id)
     {
         string savedLego = System.IO.File.ReadAllText(_filePath);
@@ -33,6 +31,6 @@ public class DeleteController : Controller
 
             System.IO.File.WriteAllText(_filePath, updatedLegoSet);
         }
-        return RedirectToAction("StorageAll");
+        return RedirectToAction("StorageAll", "Display");
     }
 }
