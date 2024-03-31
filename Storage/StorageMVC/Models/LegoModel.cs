@@ -9,6 +9,8 @@ public class LegoModel
     public int Id { get; set; }
     public string SetName { get; set; }
 
+    [Required(ErrorMessage = "The Set Number field is required.")]
+    [Range(0, int.MaxValue, ErrorMessage = "The Elements Quantity field must be a positive integer.")]
     public string SetNumber { get; set; }
 
     public string Series { get; set; }

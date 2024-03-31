@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Series" class="control-label"></label>
-                <input asp-for="Series" class="form-control" />
+                <input asp-for="Series" class="form-control" data-val="true" data-val-integer="The field Series must be an integer." />
                 <span asp-validation-for="Series" class="text-danger"></span>
             </div>
             <div class="form-group">
