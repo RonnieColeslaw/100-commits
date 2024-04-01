@@ -1,0 +1,26 @@
+﻿@model int
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Confirmation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnYes').click(function () {
+                // Redirect to DeleteConfirmed action
+                window.location.href = '@Url.Action("DeleteConfirmed", "Delete", new { id = Model })';
+            });
+            $('#btnNo').click(function () {
+                // Redirect back to the previous page
+                window.history.back();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Delete Confirmation</h2>
+    <p>Are you sure you want to delete?</p>
+    <button id="btnYes">Yes</button>
+    <button id="btnNo">No</button>
+</body>
+</html>

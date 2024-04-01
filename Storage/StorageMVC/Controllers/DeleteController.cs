@@ -2,35 +2,44 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace StorageMVC.Controllers;
-
-public class DeleteController : Controller
+namespace StorageMVC.Controllers
 {
-
-    private readonly string _filePath;
-
-    public DeleteController(IConfiguration configuration)
+    public class DeleteController : Controller
     {
-        _filePath = configuration["FilePath"];
-    }
+        private readonly string _filePath;
 
-    // POST: LegoController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        string savedLego = System.IO.File.ReadAllText(_filePath);
-
-        List<LegoModel> dataList = JsonConvert.DeserializeObject<List<LegoModel>>(savedLego);
-
-        LegoModel legoToRemove = dataList.FirstOrDefault(l => l.SetNumber == id.ToString());
-
-        if (legoToRemove != null)
+        public DeleteController(IConfiguration configuration)
         {
-            dataList.Remove(legoToRemove);
-
-            string updatedLegoSet = JsonConvert.SerializeObject(dataList, Formatting.Indented);
-
-            System.IO.File.WriteAllText(_filePath, updatedLegoSet);
+            _filePath = configuration["FilePath"];
         }
-        return RedirectToAction("StorageAll", "Display");
+
+        // GET: LegoController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            ViewBag.SetNumber = id;
+            return View();
+        }
+
+        // POST: LegoController/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            string savedLego = System.IO.File.ReadAllText(_filePath);
+
+            List<LegoModel> dataList = JsonConvert.DeserializeObject<List<LegoModel>>(savedLego);
+
+            LegoModel legoToRemove = dataList.FirstOrDefault(l => l.SetNumber == id.ToString());
+
+            if (legoToRemove != null)
+            {
+                dataList.Remove(legoToRemove);
+
+                string updatedLegoSet = JsonConvert.SerializeObject(dataList, Formatting.Indented);
+
+                System.IO.File.WriteAllText(_filePath, updatedLegoSet);
+            }
+            return RedirectToAction("StorageAll", "Display");
+        }
     }
 }
