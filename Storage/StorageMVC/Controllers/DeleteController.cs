@@ -1,6 +1,10 @@
 ﻿using LegoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace StorageMVC.Controllers
 {
@@ -13,15 +17,15 @@ namespace StorageMVC.Controllers
             _filePath = configuration["FilePath"];
         }
 
-        // GET: LegoController/Delete/5
+        // GET: Delete/Delete/5
         public ActionResult Delete(int id)
         {
             ViewBag.SetNumber = id;
-            return View();
+            return View("~/Views/Lego/DeleteConfirmation.cshtml");
         }
 
-        // POST: LegoController/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Delete/DeleteConfirmed/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
