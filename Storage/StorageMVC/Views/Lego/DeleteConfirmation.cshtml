@@ -7,7 +7,8 @@
         $(document).ready(function () {
             $('#btnYes').click(function () {
                 var id = $('#setNumber').val();
-                window.location.href = '/Delete/DeleteConfirmed/' + id;
+                location.href = '@Url.Action("DeleteConfirmed", "Delete", new { id = item.SetNumber })
+                //window.location.href = 'Controllers/Delete/DeleteConfirmed/' + id;
             });
             $('#btnNo').click(function () {
                 window.history.back();
