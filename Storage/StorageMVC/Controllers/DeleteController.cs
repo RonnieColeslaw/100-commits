@@ -21,8 +21,9 @@ namespace StorageMVC.Controllers
         public ActionResult Delete(int id)
         {
             ViewBag.SetNumber = id;
-            return View("~/Views/Lego/DeleteConfirmation.cshtml");
+            return View("~/Views/Lego/DeleteConfirmation.cshtml", id);
         }
+
 
         // POST: Delete/DeleteConfirmed/5
         [HttpPost]

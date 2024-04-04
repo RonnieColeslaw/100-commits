@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model int
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Delete Confirmation</title>
@@ -18,8 +20,11 @@
 <body>
     <h2>Delete Confirmation</h2>
     <p>Are you sure you want to delete?</p>
-    <input type="hidden" id="setNumber" value="@ViewBag.SetNumber" />
-    <button id="btnYes">Yes</button>
-    <button id="btnNo">No</button>
+    <form method="post" action="/Delete/DeleteConfirmed/@Model">
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="setNumber" value="@Model" />
+        <button type="submit" id="btnYes">Yes</button>
+        <button id="btnNo">No</button>
+    </form>
 </body>
 </html>
