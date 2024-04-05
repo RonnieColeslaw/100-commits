@@ -49,8 +49,12 @@
                 <span asp-validation-for="Warehouse" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="photo">Upload Photo</label>
-                <input type="file" id="Photo" name="Photo" class="form-control-file" />
+                <label asp-for="Photo" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="Photo" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <span asp-validation-for="Photo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="CreateSet" class="btn btn-primary" />

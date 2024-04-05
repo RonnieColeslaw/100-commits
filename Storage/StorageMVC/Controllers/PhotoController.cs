@@ -13,5 +13,7 @@ public class PhotoController : Controller
         _filePath = configuration["PhotosFilePath"];
     }
  
+    
+
 }
 

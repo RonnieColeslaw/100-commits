@@ -25,9 +25,8 @@ public class LegoModel
     public decimal ResellPrice { get; set; }
 
     public string? Warehouse { get; set; }
-
-    //[AllowHtml]
-    //public byte[] Image { get; set; }
+    [Display(Name = "Choice the LEGO set photo")]
+    public IFormFile Photo { get; set; }
 
 
 }
