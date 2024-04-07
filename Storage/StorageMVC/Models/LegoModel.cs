@@ -24,8 +24,12 @@ namespace LegoMVC.Models
         public IFormFile Photo { get; set; }
 
         
-        [Required(ErrorMessage = "Please select a series.")]
+        [Required(ErrorMessage = "Please select a Series.")]
         public string SelectedSeries { get; set; }
+
+        [Required(ErrorMessage = "Please select a Warehouse.")]
+        public string SelectedWarehouse { get; set; }
+
 
         // Property for holding dropdown list items
         public List<SelectListItem> SeriesList { get; set; }

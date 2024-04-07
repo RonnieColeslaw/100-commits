@@ -21,10 +21,20 @@ public class AddController : Controller
         var model = new LegoModel();
 
         model.SeriesList = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "Series1", Text = "Series 1" },
-             
-               
+            {   new SelectListItem { Value = "Series3", Text = "LEGO® Architecture" },
+                new SelectListItem { Value = "Series1", Text = "LEGO® Art" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® BrickHeadz" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® City" },
+                new SelectListItem { Value = "Series5", Text = "LEGO® Creator" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® Duplo" },
+                new SelectListItem { Value = "Series4", Text = "LEGO® Ideas" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® Minecraft" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® Modular Buildings" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® Speed Champions" },
+                new SelectListItem { Value = "Series2", Text = "LEGO® Star Wars" },
+                new SelectListItem { Value = "Series6", Text = "LEGO® Technic" },
+
+
             };
 
         return View("~/Views/Lego/AddLego.cshtml", model);
