@@ -37,6 +37,12 @@ public class AddController : Controller
 
             };
 
+        model.WarehousesList = new List<SelectListItem>
+        {
+            new SelectListItem {Value = "Warehouse 1", Text = "Warehouse 1"},
+            new SelectListItem {Value = "Warehouse 2", Text = "Warehouse 2"}
+        };
+
         return View("~/Views/Lego/AddLego.cshtml", model);
     }
 

@@ -13,17 +13,17 @@
         <form asp-controller="Add" asp-action="CreateSet" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SetName" class="control-label"></label>
+                <label asp-for="SetName" class="control-label">Set Name</label>
                 <input asp-for="SetName" class="form-control" />
                 <span asp-validation-for="SetName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SetNumber" class="control-label"></label>
+                <label asp-for="SetNumber" class="control-label">Set Number</label>
                 <input asp-for="SetNumber" class="form-control" />
                 <span asp-validation-for="SetNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SelectedSeries" class="control-label"></label>
+                <label asp-for="SelectedSeries" class="control-label">Series</label>
                 <select asp-for="SelectedSeries" class="form-control" asp-items="@(new SelectList(Model.SeriesList, "Value", "Text"))">
                     <option value="">Select Series</option>
                 </select>
@@ -31,25 +31,27 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="ElementsQuantity" class="control-label"></label>
+                <label asp-for="ElementsQuantity" class="control-label">Elements Quantity</label>
                 <input asp-for="ElementsQuantity" class="form-control" data-val="true" data-val-integer="The field Elements Quantity must be an integer." />
                 <span asp-validation-for="ElementsQuantity" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
+                <label asp-for="ReleaseDate" class="control-label">Release Date</label>
                 <input asp-for="ReleaseDate" class="form-control" type="date" />
                 <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RetailPrice" class="control-label"></label>
+                <label asp-for="RetailPrice" class="control-label">Retail Price</label>
                 <input asp-for="RetailPrice" class="form-control" />
                 <span asp-validation-for="RetailPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Warehouse" class="control-label"></label>
-                <input asp-for="Warehouse" class="form-control" />
-                <span asp-validation-for="Warehouse" class="text-danger"></span>
+                <label asp-for="SelectedWarehouse" class="control-label">Warehouse</label>
+                <select asp-for="SelectedWarehouse" class="form-control" asp-items="@(new SelectList(Model.WarehousesList, "Value", "Text"))">
+                    <option value="">Select Warehouse</option>
+                </select>
+                <span asp-validation-for="SelectedWarehouse" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Photo" class="control-label"></label>

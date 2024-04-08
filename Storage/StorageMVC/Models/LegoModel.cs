@@ -30,8 +30,8 @@ namespace LegoMVC.Models
         [Required(ErrorMessage = "Please select a Warehouse.")]
         public string SelectedWarehouse { get; set; }
 
-
-        // Property for holding dropdown list items
         public List<SelectListItem> SeriesList { get; set; }
+
+        public List<SelectListItem> WarehousesList { get; set; }
     }
 }
