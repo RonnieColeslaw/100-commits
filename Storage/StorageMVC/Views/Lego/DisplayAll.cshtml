@@ -1,16 +1,15 @@
-﻿@model List<LegoMVC.Models.LegoModel>
-
-@{
-    ViewData["Title"] = "DisplayAll";
-}
-
-<h1>DisplayAll</h1>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Data View</title>
     <style>
+        body {
+            background-image: url("StorageMVC\Content\Photos\background.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -28,6 +27,8 @@
     </style>
 </head>
 <body>
+
+    <h1>Display All</h1>
 
     <h2>Lego Sets List: </h2>
     <td>
@@ -52,7 +53,7 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>Photo</td>
+                    <td><img src="@Url.Content($"~/Content/Photos/background.jpg")" alt="@item.SetName" width="100"></td>
                     <td>@item.SetName</td>
                     <td>@item.SetNumber</td>
                     <td>@item.SelectedSeries</td>
@@ -62,10 +63,8 @@
                     <td>@item.ResellPrice</td>
                     <td>@item.Warehouse</td>
                     <td>
-
                         <button type="button" onclick="location.href='@Url.Action("Delete", "Delete", new { id = item.SetNumber })'">Usuń</button>
                         <button type="button" onclick="location.href='@Url.Action("Edit", "Edit", new { id = item.SetNumber })'">Edytuj</button>
-
                     </td>
                 </tr>
             }
