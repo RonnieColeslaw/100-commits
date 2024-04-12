@@ -1,75 +1,137 @@
 ﻿@model LegoMVC.Models.LegoModel
 
-@{
-    ViewData["Title"] = "AddLego";
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <title>AddLego</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-<h1>AddLego</h1>
+        h1, h4 {
+            color: #333;
+            text-align: center;
+            margin: 20px 0;
+        }
 
-<h4>LegoModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-controller="Add" asp-action="CreateSet" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SetName" class="control-label">Set Name</label>
-                <input asp-for="SetName" class="form-control" />
-                <span asp-validation-for="SetName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SetNumber" class="control-label">Set Number</label>
-                <input asp-for="SetNumber" class="form-control" />
-                <span asp-validation-for="SetNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SelectedSeries" class="control-label">Series</label>
-                <select asp-for="SelectedSeries" class="form-control" asp-items="@(new SelectList(Model.SeriesList, "Value", "Text"))">
-                    <option value="">Select Series</option>
-                </select>
-                <span asp-validation-for="SelectedSeries" class="text-danger"></span>
-            </div>
+        .row {
+            display: flex;
+            justify-content: center;
+        }
 
-            <div class="form-group">
-                <label asp-for="ElementsQuantity" class="control-label">Elements Quantity</label>
-                <input asp-for="ElementsQuantity" class="form-control" data-val="true" data-val-integer="The field Elements Quantity must be an integer." />
-                <span asp-validation-for="ElementsQuantity" class="text-danger"></span>
-            </div>
+        .col-md-4 {
+            width: 50%;
+            margin: 0 auto;
+        }
 
-            <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label">Release Date</label>
-                <input asp-for="ReleaseDate" class="form-control" type="date" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RetailPrice" class="control-label">Retail Price</label>
-                <input asp-for="RetailPrice" class="form-control" />
-                <span asp-validation-for="RetailPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SelectedWarehouse" class="control-label">Warehouse</label>
-                <select asp-for="SelectedWarehouse" class="form-control" asp-items="@(new SelectList(Model.WarehousesList, "Value", "Text"))">
-                    <option value="">Select Warehouse</option>
-                </select>
-                <span asp-validation-for="SelectedWarehouse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Photo" class="control-label"></label>
-                <div class="custom-file">
-                    <input asp-for="Photo" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
-                <span asp-validation-for="Photo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="CreateSet" class="btn btn-primary" />
-            </div>
-        </form>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition-duration: 0.4s;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>AddLego</h1>
+    <h4>LegoModel</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+                <form asp-controller="Add" asp-action="CreateSet" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="SetName" class="control-label">Set Name</label>
+                        <input asp-for="SetName" class="form-control" />
+                        <span asp-validation-for="SetName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SetNumber" class="control-label">Set Number</label>
+                        <input asp-for="SetNumber" class="form-control" />
+                        <span asp-validation-for="SetNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SelectedSeries" class="control-label">Series</label>
+                        <select asp-for="SelectedSeries" class="form-control" asp-items="@(new SelectList(Model.SeriesList, "Value", "Text"))">
+                            <option value="">Select Series</option>
+                        </select>
+                        <span asp-validation-for="SelectedSeries" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ElementsQuantity" class="control-label">Elements Quantity</label>
+                        <input asp-for="ElementsQuantity" class="form-control" data-val="true" data-val-integer="The field Elements Quantity must be an integer." />
+                        <span asp-validation-for="ElementsQuantity" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ReleaseDate" class="control-label">Release Date</label>
+                        <input asp-for="ReleaseDate" class="form-control" type="date" />
+                        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RetailPrice" class="control-label">Retail Price</label>
+                        <input asp-for="RetailPrice" class="form-control" />
+                        <span asp-validation-for="RetailPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SelectedWarehouse" class="control-label">Warehouse</label>
+                        <select asp-for="SelectedWarehouse" class="form-control" asp-items="@(new SelectList(Model.WarehousesList, "Value", "Text"))">
+                            <option value="">Select Warehouse</option>
+                        </select>
+                        <span asp-validation-for="SelectedWarehouse" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photo" class="control-label"></label>
+                        <div class="custom-file">
+                            <input asp-for="Photo" class="custom-file-input" id="customFile">
+                          
+                        </div>
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="CreateSet" class="btn btn-primary" />
+                    </div>
+                
+            </form>
+        </div>
     </div>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+</body>
+</html>
