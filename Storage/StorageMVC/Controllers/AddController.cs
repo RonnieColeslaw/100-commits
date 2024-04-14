@@ -52,9 +52,6 @@ public class AddController : Controller
     {
         if (ModelState.IsValid)
         {
-
-
-
             if(legoModel.Photo != null)
             {
                 string folder = "photos/lego";
