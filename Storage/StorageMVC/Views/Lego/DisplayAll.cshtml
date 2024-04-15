@@ -100,9 +100,12 @@
     </div>
 
     <div class="search-container">
-        <input type="text" placeholder="Search for set name.." id="searchInput">
-        <button type="button" onclick="searchTable()">Search</button>
+        <form asp-controller="Search" asp-action="Search" method="get">
+            <input type="text" placeholder="Search for set name.." name="input" id="input">
+            <button type="submit">Search</button>
+        </form>
     </div>
+
   
 
     <table>
