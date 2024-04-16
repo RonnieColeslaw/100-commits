@@ -19,8 +19,7 @@ namespace StorageMVC.Controllers
             List<LegoModel> legoSets = _sharedService.GetLegoSets();
             LegoModel legoSetToFind = legoSets.FirstOrDefault(s => s.SetName.ToLower().Contains(input.ToLower()));
 
-            return View("SearchResults", legoSetToFind);
+            return View("~/Views/Lego/SearchResults.cshtml", legoSetToFind);
         }
     }
 }
-z
