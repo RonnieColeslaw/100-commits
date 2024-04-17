@@ -1,0 +1,18 @@
+﻿@model LegoMVC.Models.LegoModel
+
+@if(Model != null)
+{
+    <h2>
+       Results found:
+    </h2>
+    <div>
+        <h4>Set name: @Model.SetName</h4>
+        <p>Set number: @Model.SetNumber</p>
+        <p>Set series: @Model.SelectedSeries </p>
+        <p>Warehouse: @Model.Warehouse</p>
+    </div>
+}
+else
+    {
+        <p>No matching item found.</p>
+    }
