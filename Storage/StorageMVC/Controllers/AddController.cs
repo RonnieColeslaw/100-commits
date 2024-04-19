@@ -33,6 +33,7 @@ public class AddController : Controller
                 new SelectListItem { Value = "Series6", Text = "LEGO® Speed Champions" },
                 new SelectListItem { Value = "Series2", Text = "LEGO® Star Wars" },
                 new SelectListItem { Value = "Series6", Text = "LEGO® Technic" },
+                new SelectListItem { Value = "DefSeries", Text = "Other" },
 
 
             };
