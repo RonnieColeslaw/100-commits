@@ -1,0 +1,11 @@
+﻿CREATE TABLE LegoStorage (
+    Id INT,
+    SetName VARCHAR(100) null,
+    SetNumber VARCHAR(100) null,
+    ElementsQuantity INT NULL,
+    ReleaseDate DATE NULL,
+    RetailPrice FLOAT NULL,
+    ResellPrice FLOAT NULL,
+    Warehouse VARCHAR(100) null,
+    Series VARCHAR(100) null
+)
