@@ -1,15 +1,23 @@
+using Microsoft.EntityFrameworkCore;
 using StorageMVC.Controllers;
+using StorageMVC.DbContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using FluentAssertions.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+Services.AddDbContext<LegoContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<SharedServices>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

@@ -9,11 +9,11 @@ public class AddController : Controller
     private readonly IWebHostEnvironment _webHostEnvironment;
     private readonly SharedServices _sharedService;
 
-    public AddController(SharedServices sharedService, IWebHostEnvironment webHostEnvironment)
+    public AddController(SharedServices sharedService, IWebHostEnvironment webHostEnvironment, LegoDbContext dbContext)
     {
-
         _sharedService = sharedService;
         _webHostEnvironment = webHostEnvironment;
+        _dbContext = dbContext;
     }
 
     public ActionResult Create()
@@ -64,18 +64,20 @@ public class AddController : Controller
             }
 
 
-            var legoSets = _sharedService.GetLegoSets();
+            //var legoSets = _sharedService.GetLegoSets();
 
-            //var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
+            ////var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
 
-            legoSets.Add(legoModel);
-            _sharedService.SaveLegoSets(legoSets);
+            //legoSets.Add(legoModel);
+            //_sharedService.SaveLegoSets(legoSets);
+
+            _db
+
+            return RedirectToAction("StorageAll", "Display");
         }
         else
         {
             return BadRequest(modelState: ModelState);
         }
-
-        return RedirectToAction("StorageAll", "Display");
     }
 }

@@ -28,7 +28,7 @@ public class Startup
         }
         else
         {
-            // Production error handler
+            
             app.UseExceptionHandler("/Home/Error");
         }
 
