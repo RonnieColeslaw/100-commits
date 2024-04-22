@@ -1,6 +1,7 @@
 ﻿using LegoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace StorageMVC.Controllers;
 
@@ -8,6 +9,7 @@ public class AddController : Controller
 {
     private readonly IWebHostEnvironment _webHostEnvironment;
     private readonly SharedServices _sharedService;
+    private readonly LegoDbContext _dbContext;
 
     public AddController(SharedServices sharedService, IWebHostEnvironment webHostEnvironment, LegoDbContext dbContext)
     {
@@ -49,29 +51,12 @@ public class AddController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult CreateSet([FromForm] LegoModel legoModel)
+    public async Task<ActionResult> CreateSet([FromForm] LegoModel legoModel)
     {
         if (ModelState.IsValid)
         {
-            if(legoModel.Photo != null)
-            {
-                string folder = "photos/lego";
-                folder += legoModel.Photo.FileName + Guid.NewGuid().ToString();
-                string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-
-                legoModel.Photo.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
-
-            }
-
-
-            //var legoSets = _sharedService.GetLegoSets();
-
-            ////var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
-
-            //legoSets.Add(legoModel);
-            //_sharedService.SaveLegoSets(legoSets);
-
-            _db
+            _dbContext.LegoSets.Add(legoModel);
+            await _dbContext.SaveChangesAsync();
 
             return RedirectToAction("StorageAll", "Display");
         }
@@ -80,4 +65,30 @@ public class AddController : Controller
             return BadRequest(modelState: ModelState);
         }
     }
+
+
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public async ActionResult CreateSet([FromForm] LegoModel legoModel)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        //var legoSets = _sharedService.GetLegoSets();
+
+    //        ////var decimalPrice = decimal.Parse(legoModel.RetailPrice, CultureInfo.InvariantCulture);
+
+    //        //legoSets.Add(legoModel);
+    //        //_sharedService.SaveLegoSets(legoSets);
+
+    //        _dbContext.LegoSets.Add(legoModel);
+    //        await _dbContext.SaveChangesAsync();
+
+    //        return RedirectToAction("StorageAll", "Display");
+    //    }
+    //    else
+    //    {
+    //        return BadRequest(modelState: ModelState);
+    //    }
+
+    //}
 }
