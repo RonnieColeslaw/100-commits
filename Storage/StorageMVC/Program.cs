@@ -1,14 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using StorageMVC.Controllers;
-using StorageMVC.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using FluentAssertions.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Services.AddDbContext<LegoContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
 
 builder.Services.AddControllersWithViews();
