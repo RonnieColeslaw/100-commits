@@ -1,11 +1,6 @@
-﻿using FluentAssertions.Common;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using StorageMVC.Controllers;
+﻿using StorageMVC.Controllers;
 using Microsoft.EntityFrameworkCore;
+using LegoMVC.Models;
 
 public class Startup
 {
@@ -22,7 +17,9 @@ public class Startup
         services.AddControllersWithViews();
 
         services.AddDbContext<LegoDbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("LegoDb"))); 
+     options.UseSqlServer(Configuration.GetConnectionString("YourConnectionString")));
+
+
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
