@@ -49,7 +49,7 @@ namespace StorageMVC.Controllers
             if (ModelState.IsValid)
             {
                 
-                _dbContext.LegoSets.Add(legoModel);
+                _dbContext.LegoModel.Add(legoModel);
                 await _dbContext.SaveChangesAsync();
 
                 return RedirectToAction("StorageAll", "Display");

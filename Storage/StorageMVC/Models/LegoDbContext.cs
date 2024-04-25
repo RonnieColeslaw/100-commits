@@ -7,5 +7,5 @@ public class LegoDbContext : DbContext
     {
     }
 
-    public DbSet<LegoModel> LegoSets { get; set; }
+    public DbSet<LegoModel> LegoModel { get; set; }
 }
