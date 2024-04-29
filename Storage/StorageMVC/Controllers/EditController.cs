@@ -1,8 +1,7 @@
 ﻿using LegoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
-
+using System.Linq;
 
 namespace StorageMVC.Controllers;
 
@@ -17,31 +16,26 @@ public class EditController : Controller
 
     public IActionResult Edit(int id)
     {
-        LegoModel legoSetToEdit = _context.LegoModels.FirstOrDefault(s => s.SetNumber == id.ToString());
+        LegoModel legoSetToEdit = _context.LegoModel.FirstOrDefault(s => s.SetNumber == id.ToString());
 
         if (legoSetToEdit == null)
         {
             return NotFound();
         }
 
-        legoSetToEdit.SeriesList = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "Series3", Text = "LEGO® Architecture" },
-                new SelectListItem { Value = "Series1", Text = "LEGO® Art" },
+        legoSetToEdit.SeriesList = _context.Series
+.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+.ToList();
 
-            };
-
-
-        legoSetToEdit.WarehousesList = new List<SelectListItem>
-            {
-                new SelectListItem {Value = "Warehouse 1", Text = "Warehouse 1"},
-                new SelectListItem {Value = "Warehouse 2", Text = "Warehouse 2"},
-
-            };
+        legoSetToEdit.WarehousesList = _context.Warehouses
+            .Select(w => new SelectListItem { Value = w.Id.ToString(), Text = w.Name })
+            .ToList();
 
         return View("~/Views/Lego/EditLego.cshtml", legoSetToEdit);
     }
 }
+
+
 
 //public class EditController : Controller
 //{
@@ -77,4 +71,4 @@ public class EditController : Controller
 //        return View("~/Views/Lego/EditLego.cshtml", legoSetToEdit);
 //    }
 
-}
+
