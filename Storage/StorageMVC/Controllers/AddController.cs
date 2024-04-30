@@ -44,10 +44,22 @@ namespace StorageMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateSet(LegoModel legoModel)
+        public async Task<ActionResult> CreateSet(LegoModel legoModel, IFormFile photo)
         {
             if (ModelState.IsValid)
             {
+                if(photo != null && photo.Length > 0)
+                {
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await photo.CopyToAsync(fileStream);
+                    }
+
+                    legoModel.PhotoPath = "/images/" + uniqueFileName; 
+                }
                 
                 _dbContext.LegoModel.Add(legoModel);
                 await _dbContext.SaveChangesAsync();

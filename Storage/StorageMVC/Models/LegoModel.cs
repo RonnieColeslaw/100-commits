@@ -33,5 +33,8 @@ namespace LegoMVC.Models
         public List<SelectListItem> SeriesList { get; set; }
 
         public List<SelectListItem> WarehousesList { get; set; }
+
+        public string PhotoPath { get; set; }
+
     }
 }
