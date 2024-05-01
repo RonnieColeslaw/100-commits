@@ -16,7 +16,7 @@ public class SearchController : Controller
 
     public IActionResult Search(string input)
     {
-        var legoSetToFind = _context.LegoModels.FirstOrDefault(s => s.SetName.ToLower().Contains(input.ToLower()));
+        var legoSetToFind = _context.LegoModel.FirstOrDefault(s => s.SetName.ToLower().Contains(input.ToLower()));
 
         return View("~/Views/Lego/SearchResults.cshtml", legoSetToFind);
     }

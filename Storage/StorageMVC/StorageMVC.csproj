@@ -25,4 +25,8 @@
     <Folder Include="wwwroot\photos\lego\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Storage\Storage.csproj" />
+  </ItemGroup>
+
 </Project>

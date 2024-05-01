@@ -1,5 +1,6 @@
 ﻿using LegoMVC.Models;
 using Microsoft.EntityFrameworkCore;
+using Storage.Model;
 
 public class LegoDbContext : DbContext
 {
@@ -8,4 +9,9 @@ public class LegoDbContext : DbContext
     }
 
     public DbSet<LegoModel> LegoModel { get; set; }
+
+    public DbSet<Warehouse> Warehouse { get; set; }
+
+    public DbSet<Serie> Serie { get; set; }
 }
+

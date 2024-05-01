@@ -21,6 +21,8 @@ namespace LegoMVC.Models
         public decimal RetailPrice { get; set; }
         public decimal ResellPrice { get; set; }
         public string? Warehouse { get; set; }
+
+        public string? Serie { get; set; }
         public IFormFile Photo { get; set; }
 
         
