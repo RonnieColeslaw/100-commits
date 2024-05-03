@@ -9,17 +9,17 @@ namespace StorageMVC.Controllers;
 
    public class DisplayController : Controller
     {
-        private readonly LegoDbContext _context; // Replace YourDbContext with your actual DbContext class name
+        private readonly LegoDbContext _context; 
 
-        public DisplayController(LegoDbContext context) // Inject the database context
+        public DisplayController(LegoDbContext context) 
         {
             _context = context;
         }
 
-        public async Task<ActionResult> StorageAll() // Use async Task<ActionResult> instead of ActionResult for asynchronous operations
+        public async Task<ActionResult> StorageAll() 
         {
-            // Retrieve items from the database
-            var dataList = await _context.LegoModel.ToListAsync(); // Replace LegoModels with your DbSet property name
+            
+            var dataList = await _context.LegoModel.ToListAsync(); 
 
             return View("~/Views/Lego/DisplayAll.cshtml", dataList);
         }
