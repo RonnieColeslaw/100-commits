@@ -16,7 +16,7 @@ public class Startup
         services.AddSingleton<SharedServices>();
         services.AddControllersWithViews();
 
-        services.AddDbContext<LegoDbContext>(options =>
+        services.AddDbContext<LegoSetContext>(options =>
      options.UseSqlServer(Configuration.GetConnectionString("LegoDb")));
 
 

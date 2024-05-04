@@ -7,9 +7,9 @@ namespace StorageMVC.Controllers;
 
 public class SearchController : Controller
 {
-    private readonly LegoDbContext _context;
+    private readonly LegoSetContext _context;
 
-    public SearchController(LegoDbContext context)
+    public SearchController(LegoSetContext context)
     {
         _context = context;
     }

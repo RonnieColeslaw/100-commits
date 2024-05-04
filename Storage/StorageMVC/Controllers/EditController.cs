@@ -7,9 +7,9 @@ namespace StorageMVC.Controllers;
 
 public class EditController : Controller
 {
-    private readonly LegoDbContext _context;
+    private readonly LegoSetContext _context;
 
-    public EditController(LegoDbContext context)
+    public EditController(LegoSetContext context)
     {
         _context = context;
     }

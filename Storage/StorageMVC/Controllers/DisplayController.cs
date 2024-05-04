@@ -9,9 +9,9 @@ namespace StorageMVC.Controllers;
 
    public class DisplayController : Controller
     {
-        private readonly LegoDbContext _context; 
+        private readonly LegoSetContext _context; 
 
-        public DisplayController(LegoDbContext context) 
+        public DisplayController(LegoSetContext context) 
         {
             _context = context;
         }

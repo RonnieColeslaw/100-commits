@@ -12,9 +12,9 @@ namespace StorageMVC.Controllers
     public class AddController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly LegoDbContext _dbContext;
+        private readonly LegoSetContext _dbContext;
 
-        public AddController(IWebHostEnvironment webHostEnvironment, LegoDbContext dbContext)
+        public AddController(IWebHostEnvironment webHostEnvironment, LegoSetContext dbContext)
         {
             _webHostEnvironment = webHostEnvironment;
             _dbContext = dbContext;

@@ -11,9 +11,9 @@ namespace StorageMVC.Controllers
 {
     public class DeleteController : Controller
     {
-        private readonly LegoDbContext _context;
+        private readonly LegoSetContext _context;
 
-        public DeleteController(LegoDbContext context)
+        public DeleteController(LegoSetContext context)
         {
             _context = context;
         }
