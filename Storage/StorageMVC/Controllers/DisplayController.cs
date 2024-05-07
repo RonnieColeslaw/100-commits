@@ -9,9 +9,9 @@ namespace StorageMVC.Controllers;
 
    public class DisplayController : Controller
     {
-        private readonly LegoSetContext _context; 
+        private readonly LegoContext _context; 
 
-        public DisplayController(LegoSetContext context) 
+        public DisplayController(LegoContext context) 
         {
             _context = context;
         }
@@ -19,7 +19,7 @@ namespace StorageMVC.Controllers;
         public async Task<ActionResult> StorageAll() 
         {
             
-            var dataList = await _context.LegoModel.ToListAsync(); 
+            var dataList = await _context.LegoSeries.ToListAsync(); 
 
             return View("~/Views/Lego/DisplayAll.cshtml", dataList);
         }

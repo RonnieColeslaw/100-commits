@@ -7,23 +7,23 @@ namespace StorageMVC.Controllers;
 
 public class EditController : Controller
 {
-    private readonly LegoSetContext _context;
+    private readonly LegoContext _context;
 
-    public EditController(LegoSetContext context)
+    public EditController(LegoContext context)
     {
         _context = context;
     }
 
     public IActionResult Edit(int id)
     {
-        LegoModel legoSetToEdit = _context.LegoModel.FirstOrDefault(s => s.SetNumber == id.ToString());
+        LegoModel legoSetToEdit = _context.LegoStorage.FirstOrDefault(s => s.SetNumber == id.ToString());
 
         if (legoSetToEdit == null)
         {
             return NotFound();
         }
 
-        legoSetToEdit.SeriesList = _context.Serie
+        legoSetToEdit.SeriesList = _context.LegoStorage.Serie
 .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
 .ToList();
 
