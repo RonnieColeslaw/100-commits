@@ -1,6 +1,7 @@
 ﻿using StorageMVC.Controllers;
 using Microsoft.EntityFrameworkCore;
-using LegoMVC.Models;
+using StorageMVC.Data;
+
 
 public class Startup
 {
@@ -16,7 +17,7 @@ public class Startup
         services.AddSingleton<SharedServices>();
         services.AddControllersWithViews();
 
-        services.AddDbContext<LegoSetContext>(options =>
+        services.AddDbContext<LegoContext>(options =>
      options.UseSqlServer(Configuration.GetConnectionString("LegoDb")));
 
 

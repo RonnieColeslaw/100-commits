@@ -21,7 +21,7 @@ namespace StorageMVC.Controllers
         // GET: Delete/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            var legoModel = await _context.LegoModel.FindAsync(id);
+            var legoModel = await _context.LegoStorage.FindAsync(id);
             if (legoModel == null)
             {
                 return NotFound();
@@ -34,13 +34,13 @@ namespace StorageMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var legoModel = await _context.LegoModel.FindAsync(id);
+            var legoModel = await _context.LegoStorage.FindAsync(id);
             if (legoModel == null)
             {
                 return NotFound();
             }
 
-            _context.LegoModel.Remove(legoModel);
+            _context.LegoStorage.Remove(legoModel);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("StorageAll", "Display");

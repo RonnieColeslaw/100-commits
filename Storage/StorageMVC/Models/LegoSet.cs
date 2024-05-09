@@ -1,4 +1,5 @@
-﻿public class LegoSet
+﻿namespace LegoMVC.Model;
+public class LegoSet
 {
     public int Id { get; set; }
     public string SetName { get; set; }

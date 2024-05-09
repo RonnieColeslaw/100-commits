@@ -19,7 +19,7 @@ namespace StorageMVC.Controllers;
         public async Task<ActionResult> StorageAll() 
         {
             
-            var dataList = await _context.LegoSeries.ToListAsync(); 
+            var dataList = await _context.LegoStorage.ToListAsync(); 
 
             return View("~/Views/Lego/DisplayAll.cshtml", dataList);
         }

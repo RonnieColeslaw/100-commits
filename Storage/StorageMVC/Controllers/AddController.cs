@@ -61,7 +61,7 @@ namespace StorageMVC.Controllers
                     legoModel.PhotoPath = "/images/" + uniqueFileName; 
                 }
                 
-                _dbContext.LegoModel.Add(legoModel);
+                _dbContext.LegoStorage.Add(legoModel);
                 await _dbContext.SaveChangesAsync();
 
                 return RedirectToAction("StorageAll", "Display");

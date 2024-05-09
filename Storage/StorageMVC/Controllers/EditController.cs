@@ -23,11 +23,11 @@ public class EditController : Controller
             return NotFound();
         }
 
-        legoSetToEdit.SeriesList = _context.LegoStorage.Serie
+        legoSetToEdit.SeriesList = _context.LegoStorage
 .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
 .ToList();
 
-        legoSetToEdit.WarehousesList = _context.Warehouse
+        legoSetToEdit.WarehousesList = _context.LegoStorage.Warehouse
             .Select(w => new SelectListItem { Value = w.Id.ToString(), Text = w.Name })
             .ToList();
 

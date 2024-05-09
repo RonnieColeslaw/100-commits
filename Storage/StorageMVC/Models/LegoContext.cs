@@ -1,11 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LegoMVC.Model;
+using Microsoft.EntityFrameworkCore;
 
-public class LegoContext : DbContext
+
+namespace StorageMVC.Data
 {
-    public DbSet<LegoSet> LegoStorage { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class LegoContext : DbContext
     {
-        modelBuilder.Entity<LegoSet>().ToTable("LegoStorage");
+        public DbSet<LegoSet> LegoStorage { get; set; }
+
+        public LegoContext(DbContextOptions<LegoContext> options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LegoSet>().ToTable("LegoStorage");
+
+            
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using LegoMVC.Model;
 
 namespace StorageMVC.Controllers;
 
@@ -16,7 +17,7 @@ public class SearchController : Controller
 
     public IActionResult Search(string input)
     {
-        var legoSetToFind = _context.LegoModel.FirstOrDefault(s => s.SetName.ToLower().Contains(input.ToLower()));
+        var legoSetToFind = _context.LegoStorage.FirstOrDefault(s => s.SetName.ToLower().Contains(input.ToLower()));
 
         return View("~/Views/Lego/SearchResults.cshtml", legoSetToFind);
     }
