@@ -1,6 +1,7 @@
 ﻿using LegoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using StorageMVC.Data;
 using System.Linq;
 
 namespace StorageMVC.Controllers;

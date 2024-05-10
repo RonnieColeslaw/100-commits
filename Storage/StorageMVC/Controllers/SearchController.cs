@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using LegoMVC.Model;
+using StorageMVC.Data;
 
 namespace StorageMVC.Controllers;
 
