@@ -25,7 +25,7 @@ public class EditController : Controller
         }
 
         legoSetToEdit.SeriesList = _context.LegoStorage
-.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.SetName })
 .ToList();
 
         legoSetToEdit.WarehousesList = _context.LegoStorage.Warehouse
