@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "Storage\Storage.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageMVC", "StorageMVC\StorageMVC.csproj", "{6D10296A-9EA9-460B-88A0-E1740F308870}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonProject", "PythonProject", "{6AE2438E-973A-4264-A10D-D3C10ADD048B}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Storage.py", "Storage.py\Storage.py.pyproj", "{DF6A9256-A343-4C02-853E-EB5949BCE571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,14 @@ Global
 		{6D10296A-9EA9-460B-88A0-E1740F308870}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D10296A-9EA9-460B-88A0-E1740F308870}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D10296A-9EA9-460B-88A0-E1740F308870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6A9256-A343-4C02-853E-EB5949BCE571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6A9256-A343-4C02-853E-EB5949BCE571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF6A9256-A343-4C02-853E-EB5949BCE571} = {6AE2438E-973A-4264-A10D-D3C10ADD048B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82F604A2-FCEE-421A-82EB-BF73DE6984A6}

@@ -1,12 +1,7 @@
 ﻿using LegoMVC.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using StorageMVC.Data;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace StorageMVC.Controllers
 {
